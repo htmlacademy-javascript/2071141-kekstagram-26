@@ -1,7 +1,7 @@
 # Личный проект «Кекстаграм»
 
 * Студент: [Петр Кравченко](https://up.htmlacademy.ru/javascript/26/user/2071141).
-* Наставник: [Марк Коваленко] (https://htmlacademy.ru/profile/id1434381).
+* Наставник: [Марк Коваленко](https://htmlacademy.ru/profile/id1434381).
 
 ---
 
