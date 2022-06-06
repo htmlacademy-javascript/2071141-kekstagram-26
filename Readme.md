@@ -1,7 +1,7 @@
 # Личный проект «Кекстаграм»
 
 * Студент: [Петр Кравченко](https://up.htmlacademy.ru/javascript/26/user/2071141).
-* Наставник: `Неизвестно`.
+* Наставник: [Геннадий Максимов](https://htmlacademy.ru/profile/gennadiy).
 
 ---
 
