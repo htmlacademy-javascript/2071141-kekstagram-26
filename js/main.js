@@ -39,26 +39,27 @@ const DESCRIPTIONS = [
   'Обувь'
 ];
 
-const getRandomComment = () => ({
+const getComment = () => ({
   id: getRandomPositiveInteger(1, 25),
   name: getRandomArrayElement(NAMES),
   message: getRandomArrayElement(MESSAGES),
   avatar: `img/avatar-${getRandomPositiveInteger(1,6)}.svg`,
 });
 
-const getRandomPost = () => ({
-  id: getRandomPositiveInteger(1, 25),
+const getPost = () => ({
+  id: getRandomPositiveInteger(1, 25), // id нужно сделать уникальными, ввести цикл
   url: `photos/${getRandomPositiveInteger(1,25)}.jpg`,
   description: getRandomArrayElement(DESCRIPTIONS),
   likes: getRandomPositiveInteger(15, 200),
-  comments: Array.from({length:getRandomPositiveInteger(1, 6)}, getRandomComment),
+  comments: Array.from({length:getRandomPositiveInteger(1, 6)}, getComment),
 });
 
-const getGroupOfPost = Array.from({length: 25}, getRandomPost);
+const getMultiplePosts = Array.from({length: 25}, getPost);
 
 // eslint-disable-next-line no-unused-expressions
-getGroupOfPost;
+getMultiplePosts;
 
-//console.log(getRandomPost());
 
-//console.log (getGroupOfPost)
+console.log(getPost());
+
+console.log (getMultiplePosts);
