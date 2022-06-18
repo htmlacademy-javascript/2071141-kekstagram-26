@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const getRandomPositiveInteger = (a, b) => {
   const lower = Math.ceil(Math.min(Math.abs(a), Math.abs(b)));
   const upper = Math.floor(Math.max(Math.abs(a), Math.abs(b)));
@@ -39,26 +40,37 @@ const DESCRIPTIONS = [
   'Обувь'
 ];
 
-const getRandomComment = () => ({
-  id: getRandomPositiveInteger(1, 25),
+const MAX_POSTS_COUNT = 25;
+
+const firstId = {
+  comments: 0,
+  posts: 0,
+};
+
+const generateId = (key) => {
+  firstId[key] += 1;
+  return firstId[key];
+};
+
+const createComment = () => ({
+  id: generateId('comments'),
   name: getRandomArrayElement(NAMES),
   message: getRandomArrayElement(MESSAGES),
   avatar: `img/avatar-${getRandomPositiveInteger(1,6)}.svg`,
 });
 
-const getRandomPost = () => ({
-  id: getRandomPositiveInteger(1, 25),
+const createPost = () => ({
+  id: generateId('posts'),
   url: `photos/${getRandomPositiveInteger(1,25)}.jpg`,
   description: getRandomArrayElement(DESCRIPTIONS),
   likes: getRandomPositiveInteger(15, 200),
-  comments: Array.from({length:getRandomPositiveInteger(1, 6)}, getRandomComment),
+  comments: Array.from({length:getRandomPositiveInteger(1, 6)}, createComment),
 });
 
-const getGroupOfPost = Array.from({length: 25}, getRandomPost);
+const createMultiplePosts = Array.from({length: MAX_POSTS_COUNT}, createPost);
 
-// eslint-disable-next-line no-unused-expressions
-getGroupOfPost;
+//console.log(createComment());
 
-//console.log(getRandomPost());
+//console.log(createPost());
 
-//console.log (getGroupOfPost)
+//console.log (createMultiplePosts);
