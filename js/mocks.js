@@ -1,4 +1,5 @@
-import {getRandomPositiveInteger, getRandomArrayElement} from './utils.js';
+import {getRandomPositiveInteger} from './utils.js';
+import {getRandomArrayElement} from './utils.js';
 
 const NAMES =[
   'Орфей',
@@ -56,7 +57,5 @@ const createPost = () => ({
 });
 
 const createMultiplePosts = Array.from({length: MAX_POSTS_COUNT}, createPost);
-
-console.log(createMultiplePosts);
 
 export {createMultiplePosts};
