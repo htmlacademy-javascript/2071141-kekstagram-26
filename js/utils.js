@@ -6,7 +6,7 @@ const getRandomPositiveInteger = (a, b) => {
 };
 
 const checkStringLength = (string, maxLength) => string.length <= maxLength;
-checkStringLength('Test', 30);
+checkStringLength('12334',3);
 
 const getRandomArrayElement = (elements) => elements[getRandomPositiveInteger(0, elements.length - 1)];
 

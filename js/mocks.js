@@ -29,33 +29,30 @@ const DESCRIPTIONS = [
 ];
 
 const MAX_POSTS_COUNT = 25;
+const MIN_LIKES = 15;
+const MAX_LIKES = 200;
+const URL_MIN = 1;
+const URL_MAX = 25;
+const AVATAR_MIN = 1;
+const AVATAR_MAX = 6;
+const COMMENTS_MIN = 1;
+const COMMENTS_MAX = 6;
 
-const firstId = {
-  comments: 0,
-  posts: 0,
-};
-
-const generateId = (key) => {
-  firstId[key] += 1;
-  return firstId[key];
-};
-
-
-const createComment = () => ({
-  id: generateId('comments'),
+const createComment = (index) => ({
+  id: index,
   name: getRandomArrayElement(NAMES),
   message: getRandomArrayElement(MESSAGES),
-  avatar: `img/avatar-${getRandomPositiveInteger(1,6)}.svg`,
+  avatar: `img/avatar-${getRandomPositiveInteger(AVATAR_MIN,AVATAR_MAX)}.svg`,
 });
 
-const createPost = () => ({
-  id: generateId('posts'),
-  url: `photos/${getRandomPositiveInteger(1,25)}.jpg`,
+const createPost = (index) => ({
+  id: index,
+  url: `photos/${getRandomPositiveInteger(URL_MIN,URL_MAX)}.jpg`,
   description: getRandomArrayElement(DESCRIPTIONS),
-  likes: getRandomPositiveInteger(15, 200),
-  comments: Array.from({length:getRandomPositiveInteger(1, 6)}, createComment),
+  likes: getRandomPositiveInteger(MIN_LIKES, MAX_LIKES),
+  comments: new Array(getRandomPositiveInteger(COMMENTS_MIN,COMMENTS_MAX)).fill('').map((_,index) => createComment(index + 1)),
 });
 
-const createMultiplePosts = Array.from({length: MAX_POSTS_COUNT}, createPost);
+const createMultiplePosts = new Array(MAX_POSTS_COUNT).fill('').map((_,index) => createPost(index + 1));
 
 export {createMultiplePosts};
