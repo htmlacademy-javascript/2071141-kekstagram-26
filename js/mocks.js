@@ -50,6 +50,7 @@ const createPost = (index) => ({
   url: `photos/${getRandomPositiveInteger(URL_MIN,URL_MAX)}.jpg`,
   description: getRandomArrayElement(DESCRIPTIONS),
   likes: getRandomPositiveInteger(MIN_LIKES, MAX_LIKES),
+  // eslint-disable-next-line no-shadow
   comments: new Array(getRandomPositiveInteger(COMMENTS_MIN,COMMENTS_MAX)).fill('').map((_,index) => createComment(index + 1)),
 });
 
