@@ -1,7 +1,6 @@
-import {getRandomPositiveInteger} from './utils.js';
-import {getRandomArrayElement} from './utils.js';
+import {getRandomPositiveInteger, getRandomArrayElement} from './utils.js';
 
-const NAMES =[
+const NAMES = [
   'Орфей',
   'Василий',
   'kiLLswitch99',
@@ -29,31 +28,42 @@ const DESCRIPTIONS = [
 ];
 
 const MAX_POSTS_COUNT = 25;
-const MIN_LIKES = 15;
-const MAX_LIKES = 200;
-const URL_MIN = 1;
-const URL_MAX = 25;
-const AVATAR_MIN = 1;
-const AVATAR_MAX = 6;
-const COMMENTS_MIN = 1;
-const COMMENTS_MAX = 6;
+
+const UrlId = {
+  MIN:1,
+  MAX:25
+};
+
+const LikesCount = {
+  MIN:15,
+  MAX:200
+};
+
+const AvatarId = {
+  MIN: 0,
+  MAX: 6
+};
+
+const CommentsCount = {
+  MIN: 0,
+  MAX: 6
+};
 
 const createComment = (index) => ({
   id: index,
   name: getRandomArrayElement(NAMES),
   message: getRandomArrayElement(MESSAGES),
-  avatar: `img/avatar-${getRandomPositiveInteger(AVATAR_MIN,AVATAR_MAX)}.svg`,
+  avatar: `img/avatar-${getRandomPositiveInteger(AvatarId.MIN,AvatarId.MAX)}.svg`,
 });
 
 const createPost = (index) => ({
   id: index,
-  url: `photos/${getRandomPositiveInteger(URL_MIN,URL_MAX)}.jpg`,
+  url: `photos/${getRandomPositiveInteger(UrlId.MIN, UrlId.MAX)}.jpg`,
   description: getRandomArrayElement(DESCRIPTIONS),
-  likes: getRandomPositiveInteger(MIN_LIKES, MAX_LIKES),
-  // eslint-disable-next-line no-shadow
-  comments: new Array(getRandomPositiveInteger(COMMENTS_MIN,COMMENTS_MAX)).fill('').map((_,index) => createComment(index + 1)),
+  likes: getRandomPositiveInteger(LikesCount.MIN,LikesCount.MAX),
+  comments: new Array(getRandomPositiveInteger(CommentsCount.MIN, CommentsCount.MAX)).fill('').map((_, indexComment) => createComment(indexComment + 1)),
 });
 
-const createMultiplePosts = new Array(MAX_POSTS_COUNT).fill('').map((_,index) => createPost(index + 1));
+const createMultiplePosts = () => new Array(MAX_POSTS_COUNT).fill('').map((_, index) => createPost(index + 1));
 
 export {createMultiplePosts};
