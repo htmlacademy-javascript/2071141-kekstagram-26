@@ -1,5 +1,3 @@
-import {createMultiplePosts} from './mocks.js';
-
-createMultiplePosts();
-
-console.log(createMultiplePosts());
+import './mocks.js';
+import './pictures.js';
+import './utils.js';
