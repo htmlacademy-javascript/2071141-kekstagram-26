@@ -1,4 +1,3 @@
-import {createMultiplePosts} from './mocks.js';
-
-// eslint-disable-next-line no-unused-expressions
-createMultiplePosts;
+import './mocks.js';
+import './pictures.js';
+import './utils.js';
