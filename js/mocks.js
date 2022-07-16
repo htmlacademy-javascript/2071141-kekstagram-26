@@ -1,4 +1,4 @@
-import {getRandomPositiveInteger, getRandomArrayElement} from './utils.js';
+import { getRandomPositiveInteger, getRandomArrayElement } from './utils.js';
 
 const NAMES = [
   'user1',
@@ -67,4 +67,4 @@ const createPost = (index) => ({
 
 const createMultiplePosts = () => new Array(MAX_POSTS_COUNT).fill('').map((_, index) => createPost(index + 1));
 
-export {createMultiplePosts, MAX_COMMENT_LENGTH};
+export { createMultiplePosts, MAX_COMMENT_LENGTH };

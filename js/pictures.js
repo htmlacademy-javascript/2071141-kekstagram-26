@@ -13,5 +13,4 @@ similarPictures.forEach(({url, likes, comments}) => {
   pictureElement.querySelector('.picture__comments').textContent = comments.length;
 
   similarPictureElement.appendChild(pictureElement);
-
 });

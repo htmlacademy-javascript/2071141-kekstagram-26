@@ -1,31 +1,28 @@
 import {isEscapeKey} from './utils.js';
 // import { commentForm, hashtagForm } from './validation.js';
 
-const findModalElement = document.querySelector('.img-upload__overlay');
-const findModalOpenElement = document.querySelector('#upload-file');
-const findModalCloseElement = document.querySelector('.img-upload__cancel');
+const modalElement = document.querySelector('.img-upload__overlay');
+const modalOpenElement = document.querySelector('#upload-file');
+const modalCloseElement = document.querySelector('.img-upload__cancel');
 
-const onPopupEscKeydown = (evt) => {
+const onDocumentEscKeydown = (evt) => {
   if (isEscapeKey(evt)) {
     evt.preventDefault();
-    // eslint-disable-next-line no-use-before-define
     closeUserModal();
   }
 };
 
-const openUserModal = () => {
-  findModalElement.classList.remove('hidden');
+function closeUserModal() {
+  modalElement.classList.add('hidden');
+  document.removeEventListener('keydown', onDocumentEscKeydown);
+}
 
-  document.addEventListener('keydown', onPopupEscKeydown);
+const onModalOpenElementChange = () => {
+  modalElement.classList.remove('hidden');
+  document.addEventListener('keydown', onDocumentEscKeydown);
 };
 
-const closeUserModal =  () => {
-  findModalElement.classList.add('hidden');
-  findModalElement.value = '';
+const onModalCloseElementCLick = () => closeUserModal();
 
-  document.removeEventListener('keydown', onPopupEscKeydown);
-};
-
-findModalOpenElement.addEventListener('change', openUserModal);
-
-findModalCloseElement.addEventListener('click', closeUserModal);
+modalOpenElement.addEventListener('change', onModalOpenElementChange);
+modalCloseElement.addEventListener('click', onModalCloseElementCLick);

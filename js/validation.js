@@ -1,4 +1,4 @@
-import { MAX_COMMENT_LENGTH } from './mocks';
+import { MAX_COMMENT_LENGTH } from './mocks.js';
 
 const userForm = document.querySelector('.img-upload__form');
 const commentForm = document.querySelector('.text__description');
