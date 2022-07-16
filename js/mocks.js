@@ -1,12 +1,12 @@
 import {getRandomPositiveInteger, getRandomArrayElement} from './utils.js';
 
 const NAMES = [
-  'Орфей',
-  'Василий',
-  'kiLLswitch99',
-  '0-0',
-  'Робототехник3000',
-  'Антон'
+  'user1',
+  'user2',
+  'user3',
+  'user4',
+  'user5',
+  'user6'
 ];
 
 const MESSAGES = [
@@ -28,6 +28,7 @@ const DESCRIPTIONS = [
 ];
 
 const MAX_POSTS_COUNT = 25;
+const MAX_COMMENT_LENGTH = 140;
 
 const UrlId = {
   MIN:1,
@@ -66,4 +67,4 @@ const createPost = (index) => ({
 
 const createMultiplePosts = () => new Array(MAX_POSTS_COUNT).fill('').map((_, index) => createPost(index + 1));
 
-export {createMultiplePosts};
+export {createMultiplePosts, MAX_COMMENT_LENGTH};
