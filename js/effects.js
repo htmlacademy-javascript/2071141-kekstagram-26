@@ -6,8 +6,7 @@ const imgUploadEffectLevel = document.querySelector('.img-upload__effect-level')
 imgUploadEffectLevel.classList.add('hidden');
 
 const onFilterChange = (evt) =>{
-  const currentClass = `effects__preview--${evt.target.value}`;
-  imgUploadPreview.className = currentClass;
+  imgUploadPreview.className = `effects__preview--${evt.target.value}`;
 };
 
 effectsList.addEventListener('click', onFilterChange);
