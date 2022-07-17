@@ -21,9 +21,11 @@ pristine.addValidator(commentForm,
   checkCommentLength,
   `Должно быть не более ${ MAX_COMMENT_LENGTH } символов`);
 
-pristine.addValidator(hashtagForm,
-  '',
-  'Добавьте свой хэштег');
+//Проверка,что поле хэш-тега пустое
+
+// pristine.addValidator(hashtagForm,
+//   '',
+//   'Добавьте свой хэштег');
 
 userForm.addEventListener('submit', (evt) => {
   if (pristine.validate() === false) {
