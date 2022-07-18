@@ -1,4 +1,4 @@
-import {isEscapeKey} from './utils.js';
+import { isEscapeKey } from './utils.js';
 // import { commentForm, hashtagForm } from './validation.js';
 
 const modalElement = document.querySelector('.img-upload__overlay');

@@ -5,11 +5,11 @@ const imgUploadEffectLevel = document.querySelector('.img-upload__effect-level')
 
 imgUploadEffectLevel.classList.add('hidden');
 
-const onFilterChange = (evt) =>{
+const onFilterClick = (evt) => {
   imgUploadPreview.className = `effects__preview--${evt.target.value}`;
 };
 
-effectsList.addEventListener('click', onFilterChange);
+effectsList.addEventListener('click', onFilterClick);
 
 // Наложение эффекта на изображение:
 

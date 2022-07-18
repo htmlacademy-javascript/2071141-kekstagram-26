@@ -13,30 +13,30 @@ const scaleControlValue = imgUploadScale.querySelector('.scale__control--value')
 
 
 let control = Scale.DEFAULT;
-scaleControlValue.value = `${control}`;
+scaleControlValue.value = control;
 
-const onScaleButtonIncrease = () => {
+const onUpScaleButtonClick = () => {
   if (control + Scale.STEP < Scale.MAX) {
     control += Scale.STEP;
   } else {
     control = Scale.MAX;
   }
-  scaleControlValue.value = `${control}%`;
+  scaleControlValue.value = control;
   imgUploadPreview.style.transform = `scale(${control / 100})`;
 };
 
-const onScaleButtonDecrease = () => {
+const onDownScaleButtonClick = () => {
   if (control - Scale.STEP > Scale.MIN) {
     control -= Scale.STEP;
   } else {
     control = Scale.MIN;
   }
-  scaleControlValue.value = `${control}%`;
+  scaleControlValue.value = control;
   imgUploadPreview.style.transform = `scale(${control / 100})`;
 };
 
-scaleControlIncrease.addEventListener('click', onScaleButtonIncrease);
-scaleControlDecrease.addEventListener('click', onScaleButtonDecrease);
+scaleControlIncrease.addEventListener('click', onUpScaleButtonClick);
+scaleControlDecrease.addEventListener('click', onDownScaleButtonClick);
 
 export { imgUploadPreview };
 

@@ -28,7 +28,7 @@ pristine.addValidator(commentForm,
 //   'Добавьте свой хэштег');
 
 userForm.addEventListener('submit', (evt) => {
-  if (pristine.validate() === false) {
+  if (!pristine.validate()) {
     evt.preventDefault();
   }
 });
