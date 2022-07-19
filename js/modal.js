@@ -1,4 +1,5 @@
 import { isEscapeKey } from './utils.js';
+import { addEffectsEventListeners, removeEffectsEventListeners } from './effects.js';
 // import { commentForm, hashtagForm } from './validation.js';
 
 const modalElement = document.querySelector('.img-upload__overlay');
@@ -15,11 +16,13 @@ const onDocumentEscKeydown = (evt) => {
 function closeUserModal() {
   modalElement.classList.add('hidden');
   document.removeEventListener('keydown', onDocumentEscKeydown);
+  removeEffectsEventListeners();
 }
 
 const onModalOpenElementChange = () => {
   modalElement.classList.remove('hidden');
   document.addEventListener('keydown', onDocumentEscKeydown);
+  addEffectsEventListeners();
 };
 
 const onModalCloseElementCLick = () => closeUserModal();
