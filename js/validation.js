@@ -1,4 +1,4 @@
-import { MAX_COMMENT_LENGTH } from './mocks';
+import { MAX_COMMENT_LENGTH } from './mocks.js';
 
 const userForm = document.querySelector('.img-upload__form');
 const commentForm = document.querySelector('.text__description');
@@ -21,12 +21,14 @@ pristine.addValidator(commentForm,
   checkCommentLength,
   `Должно быть не более ${ MAX_COMMENT_LENGTH } символов`);
 
-pristine.addValidator(hashtagForm,
-  '',
-  'Добавьте свой хэштег');
+//Проверка,что поле хэш-тега пустое
+
+// pristine.addValidator(hashtagForm,
+//   '',
+//   'Добавьте свой хэштег');
 
 userForm.addEventListener('submit', (evt) => {
-  if (pristine.validate() === false) {
+  if (!pristine.validate()) {
     evt.preventDefault();
   }
 });
