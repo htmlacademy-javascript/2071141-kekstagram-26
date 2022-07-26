@@ -12,8 +12,6 @@ const FilterValue = {
 const filter = document.querySelector('.img-filters');
 const filterBtns = filter.querySelectorAll('.img-filters__button');
 
-//  написать функцию для сортировки массива DISCUSSED;
-
 let thumbnails = [];
 
 const changeFilter = (evt) => {
@@ -30,7 +28,7 @@ const changeFilter = (evt) => {
         renderThumbnails(shuffle(thumbnails.slice()).slice(0, MAX_COUNT_RANDOM_THUMBNAIL));
         break;
       case FilterValue.DISCUSSED:
-        renderThumbnails(thumbnails);
+        renderThumbnails(thumbnails.slice().sort((firstPhoto, secondPhoto) => secondPhoto.comments.length - firstPhoto.comments.length));
         break;
     }
   }

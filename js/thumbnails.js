@@ -1,4 +1,4 @@
-// import { renderBigPicture } from '/.big-PictureInPictureWindow.js';
+import { renderBigPicture } from './big-picture.js';
 
 const thumbnailPictureElement = document.querySelector ('.pictures');
 const thumbnailPictureTemplate = document.querySelector ('#picture').content.querySelector('.picture');
@@ -15,9 +15,8 @@ const createThumbnail = ({ url, likes, comments }) => {
   thumbnailElement.addEventListener ('click', (evt) => {
     evt.preventDefault();
     console.log('Клик по фото');
-    // renderBigPicture(picture);
+    renderBigPicture();
   });
-
 };
 
 const renderThumbnails = (thumbnails) => {
