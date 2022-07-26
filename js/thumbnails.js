@@ -1,3 +1,5 @@
+// import { renderBigPicture } from '/.big-PictureInPictureWindow.js';
+
 const thumbnailPictureElement = document.querySelector ('.pictures');
 const thumbnailPictureTemplate = document.querySelector ('#picture').content.querySelector('.picture');
 
@@ -9,12 +11,18 @@ const createThumbnail = ({ url, likes, comments }) => {
   thumbnailElement.querySelector('.picture__comments').textContent = comments.length;
 
   thumbnailPictureElement.appendChild(thumbnailElement);
+
+  thumbnailElement.addEventListener ('click', (evt) => {
+    evt.preventDefault();
+    console.log('Клик по фото');
+    // renderBigPicture(picture);
+  });
+
 };
 
 const renderThumbnails = (thumbnails) => {
   thumbnails.forEach((thumbnail) => {
     createThumbnail(thumbnail);
-    //на каждый thumbnail повесить обработчик клика, который инициализирует попап с комментариями в который передаш thubnail данные
   });
 };
 
