@@ -1,6 +1,10 @@
-import './mocks.js';
-import './pictures.js';
-import './utils.js';
-import './modal.js';
-import './validation.js';
-import './effects.js';
+import { getData } from './api.js';
+import { initFilters } from './filter.js';
+import { renderThumbnails } from './thumbnails.js';
+
+const initApp = (data) => {
+  renderThumbnails(data);
+  initFilters(data);
+};
+
+getData(initApp, (error) => console.log(error));

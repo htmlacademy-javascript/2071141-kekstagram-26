@@ -1,13 +1,24 @@
-export const getRandomPositiveInteger = (a, b) => {
-  const lower = Math.ceil(Math.min(Math.abs(a), Math.abs(b)));
-  const upper = Math.floor(Math.max(Math.abs(a), Math.abs(b)));
-  const result = Math.random() * (upper - lower + 1) + lower;
-  return Math.floor(result);
-};
+const TIMEOUT_DELAY = 500;
 
-const checkStringLength = (string, maxLength) => string.length <= maxLength;
-checkStringLength('Test', 3);
-
-export const getRandomArrayElement = (elements) => elements[getRandomPositiveInteger(0, elements.length - 1)];
+export const checkStringLength = (string, maxLength) => string.length <= maxLength;
 
 export const isEscapeKey = (evt) => evt.key === 'Escape';
+
+export const debounce = (callback, timeoutDelay = TIMEOUT_DELAY) => {
+  let timeoutId;
+
+  return (...rest) => {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => callback.apply(this, rest), timeoutDelay);
+  };
+};
+
+export const shuffle = (array) => {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+
+  return array;
+};
+
