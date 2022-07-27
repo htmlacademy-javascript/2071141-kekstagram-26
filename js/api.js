@@ -1,5 +1,6 @@
 const Address = {
   GET: 'https://26.javascript.pages.academy/kekstagram/data',
+  SEND: 'https://26.javascript.pages.academy/kekstagram',
 };
 
 const getData = (onSuccess, onError) => {
@@ -13,9 +14,29 @@ const getData = (onSuccess, onError) => {
     .then((data) => {
       onSuccess(data);
     })
-    .catch((err) => {
-      onError(err);
+    .catch(() => {
+      onError(true);
     });
 };
 
-export {getData};
+const sendData = (onSuccess, onError, body) =>
+{
+  fetch(Address.SEND,
+    {
+      method: 'POST',
+      body,
+    },
+  )
+    .then((response) => {
+      if (response.ok) {
+        onSuccess();
+      } else {
+        onError();
+      }
+    })
+    .catch(
+      () => onError()
+    );
+};
+
+export {getData, sendData};
