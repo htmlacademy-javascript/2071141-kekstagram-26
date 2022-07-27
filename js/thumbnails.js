@@ -3,7 +3,7 @@ import { renderBigPicture } from './big-picture.js';
 const thumbnailPictureElement = document.querySelector ('.pictures');
 const thumbnailPictureTemplate = document.querySelector ('#picture').content.querySelector('.picture');
 
-const createThumbnail = ({ url, likes, comments }) => {
+const createThumbnail = ({ url, likes, comments, description }) => {
   const thumbnailElement = thumbnailPictureTemplate.cloneNode(true);
 
   thumbnailElement.querySelector('.picture__img').src = url;
@@ -12,10 +12,9 @@ const createThumbnail = ({ url, likes, comments }) => {
 
   thumbnailPictureElement.appendChild(thumbnailElement);
 
-  thumbnailElement.addEventListener ('click', (evt) => {
+  thumbnailElement.addEventListener('click', (evt) => {
     evt.preventDefault();
-    console.log('Клик по фото');
-    renderBigPicture();
+    renderBigPicture(url, likes, comments, description);
   });
 };
 

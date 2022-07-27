@@ -18,14 +18,15 @@ function closeUserModal() {
   document.removeEventListener('keydown', onDocumentEscKeydown);
   removeEffectsEventListeners();
 }
+const onModalCloseElementCLick = () => closeUserModal();
 
 const onModalOpenElementChange = () => {
   modalElement.classList.remove('hidden');
   document.addEventListener('keydown', onDocumentEscKeydown);
+  modalCloseElement.addEventListener('click', onModalCloseElementCLick);
   addEffectsEventListeners();
 };
 
-const onModalCloseElementCLick = () => closeUserModal();
-
-modalOpenElement.addEventListener('change', onModalOpenElementChange);
-modalCloseElement.addEventListener('click', onModalCloseElementCLick);
+export const modalInit = () => {
+  modalOpenElement.addEventListener('change', onModalOpenElementChange);
+};
