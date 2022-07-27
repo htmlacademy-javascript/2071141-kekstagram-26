@@ -20,13 +20,13 @@ let control = Scale.DEFAULT;
 scaleControlValue.value = control;
 
 const onUpScaleButtonClick = () => {
-  control = Math.min (control + Scale.STEP, Scale.MAX);
+  control = Math.min(control + Scale.STEP, Scale.MAX);
   scaleControlValue.value = control;
   imagePreview.style.transform = `scale(${control / 100})`;
 };
 
 const onDownScaleButtonClick = () => {
-  control = Math.max (control - Scale.STEP, Scale.MIN);
+  control = Math.max(control - Scale.STEP, Scale.MIN);
   scaleControlValue.value = control;
   imagePreview.style.transform = `scale(${control / 100})`;
 };
